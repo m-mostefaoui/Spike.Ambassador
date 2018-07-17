@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: catchall
+  annotations:
+    getambassador.io/config: |
+      ---
+      apiVersion: ambassador/v0
+      kind:  Mapping
+      name:  catch-all
+      prefix: /
+      service: https://www.getambassador.io
+      host_rewrite: https://www.getambassador.io
+spec:
+  ports:
+  - name: catchall
+    port: 80
