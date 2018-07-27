@@ -950,11 +950,11 @@ spec:
     - destination:
         host: pvr-app
         subset: app-v1
-      weight: 90
+      weight: 50
     - destination:
         host: pvr-app
         subset: app-v2
-      weight: 10
+      weight: 50
 
 ---
 apiVersion: networking.istio.io/v1alpha3
@@ -977,9 +977,9 @@ Then, apply it to the Kubernetes
 kubectl apply -f pvr-application-canary.yaml
 ```
 
-After setting this rule, Istio will ensure that only one tenth of the requests will be sent to the canary version, regardless of how many replicas of each version are running.
+After setting this rule, Istio will ensure that only one fifth of the requests will be sent to the canary version, regardless of how many replicas of each version are running.
 
-![alt text](images/canary-deployment-with-istio.png "Ambassador: Canary deployment")
+![alt text](images/canary-deployment-with-.png "Ambassador: Canary deployment")
 
 
 ### More sophisticated canary deployment scenarios using Istio
