@@ -334,7 +334,9 @@ Then, apply it to the Kubernetes with kubectl:
 kubectl apply -f ambassador-http.yaml
 ```
 
-In this case, the `apiv2_mapping` will receive 50% of the requests for `/pvrapi/`, and Ambassador will assign the remaining 50% to the `qotm_mapping`
+In this case, the `apiv2_mapping` will receive 50% of the requests for `/pvrapi/`, and Ambassador will assign the remaining 50% to the `qotm_mapping`.
+
+![alt text](images/canary-deployment-with-amabassador.png "Ambassador: Canary deployment")
 
 ### TLS Termination
 To enable TLS termination for Ambassador you'll need a few things:
@@ -976,6 +978,8 @@ kubectl apply -f pvr-application-canary.yaml
 ```
 
 After setting this rule, Istio will ensure that only one tenth of the requests will be sent to the canary version, regardless of how many replicas of each version are running.
+
+![alt text](images/canary-deployment-with-istio.png "Ambassador: Canary deployment")
 
 
 ### More sophisticated canary deployment scenarios using Istio
